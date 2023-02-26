@@ -37,8 +37,7 @@ ui <-dashboardPage(
     withSpinner(plotlyOutput("freyja.summarized", height = 500), color="#c5050c"),
     hr(),
     withSpinner(plotlyOutput("freyja.raw", height = 500), color="#c5050c"),
-    h4("Average variant (%): ", textOutput("text.average", container = span)),
-    h4("Median variant (%): ", textOutput("text.median", container = span))
+    h4("Average variant (%): ", textOutput("text.average", container = span))
     
     )
 )
@@ -118,13 +117,11 @@ server <- function(input, output, session){
     
     
     output$text.average <- renderText({
-      mean(freyja.raw.select()$proportion)
+      sum(freyja.raw.select()$proportion, na.rm=TRUE)/length(unique(freyja.summarized.select()$samples))
     })
     
     
-    output$text.median <- renderText({
-      median(freyja.raw.select()$proportion)
-    })
+
     
 
 }
