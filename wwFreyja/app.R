@@ -24,7 +24,7 @@ ui <-dashboardPage(
     checkboxGroupInput("choice_QC_run", "QC run: ", choices = unique(freyja.raw$QC_Run), selected = "qc_passed"),
     pickerInput("choice_city", "Select a city: ", choices = levels(as.factor(freyja.raw$sites)), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$sites))),
     pickerInput("choice_run", "Select a run: ", choices = levels(as.factor(freyja.raw$Run)), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = last.run),
-    sliderInput("choice_DateRange", "Dates:", min = as.Date("2022-01-01","%Y-%m-%d"), max = as.Date(Sys.Date(),"%Y-%m-%d"), value = c(as.Date("2022-01-01","%Y-%m-%d"), as.Date(Sys.Date(), timeFormat="%Y-%m-%d"))),
+    dateRangeInput("choice_DateRange", "Dates:", start = "2022-01-01", end = as.Date(Sys.Date(),"%Y-%m-%d"), format ="yyyy-mm-dd"),
     
     h3("Only for raw data"),
     pickerInput("choice_Variant1", "Select a variant group: ", choices = sort(levels(as.factor(freyja.raw$Lineage))), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$Lineage))),
