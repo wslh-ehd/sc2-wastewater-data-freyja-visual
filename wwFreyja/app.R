@@ -35,10 +35,9 @@ ui <-dashboardPage(
   
   dashboardBody(
     withSpinner(plotlyOutput("freyja.summarized", height = 500), color="#c5050c"),
-    h4("Average of the selected variant(s) (%): ", textOutput("text.average", container = span)),
     hr(),
     withSpinner(plotlyOutput("freyja.raw", height = 500), color="#c5050c"),
-    h4("Average of the selected variant(s) (%): ", textOutput("text.average.raw", container = span))
+    h4("RAW DATA: Average of the selected variant(s) (%): ", textOutput("text.average.raw", container = span))
     
     )
 )
@@ -116,11 +115,7 @@ server <- function(input, output, session){
                legend = list(title=list(text='<b> Variants </b>')))
     })
     
-    
-    output$text.average <- renderText({
-      sum(freyja.summarized.select()$proportion*100, na.rm=TRUE)/length(unique(freyja.summarized.select()$samples))
-    })
-    
+   
     output$text.average.raw <- renderText({
       sum(freyja.raw.select()$proportion, na.rm=TRUE)/length(unique(freyja.summarized.select()$samples))
     })
