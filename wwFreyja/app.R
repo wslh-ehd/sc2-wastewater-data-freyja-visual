@@ -37,7 +37,7 @@ ui <-dashboardPage(
     withSpinner(plotlyOutput("freyja.summarized", height = 500), color="#c5050c"),
     hr(),
     withSpinner(plotlyOutput("freyja.raw", height = 500), color="#c5050c"),
-    h4("Average variant (%): ", textOutput("text.average", container = span))
+    h4("Average of the selected variant(s) (%): ", textOutput("text.average", container = span))
     
     )
 )
