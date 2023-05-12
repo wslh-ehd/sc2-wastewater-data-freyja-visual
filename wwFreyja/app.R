@@ -118,7 +118,7 @@ server <- function(input, output, session){
     
     
     output$text.average <- renderText({
-      sum(freyja.summarized.select()$proportion, na.rm=TRUE)/length(unique(freyja.summarized.select()$samples))
+      sum(freyja.summarized.select()$proportion*100, na.rm=TRUE)/length(unique(freyja.summarized.select()$samples))
     })
     
     output$text.average.raw <- renderText({
