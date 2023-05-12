@@ -27,9 +27,9 @@ ui <-dashboardPage(
     dateRangeInput("choice_DateRange", "Dates:", start = "2022-01-01", end = as.Date(Sys.Date(),"%Y-%m-%d"), format ="yyyy-mm-dd"),
     
     h3("Only for raw data"),
-    pickerInput("choice_Variant1", "Select a variant group: ", choices = sort(levels(as.factor(freyja.raw$Lineage))), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$Lineage))),
-    pickerInput("choice_Variant2", "Select a lineage (Pango, no alias): ", choices = sort(levels(as.factor(freyja.raw$Pango))), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$Pango))),
-    pickerInput("choice_Variant3", "Select a lineage (raw freyja): ", choices = sort(unique(freyja.raw$OriginalLineages)), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$OriginalLineages)))
+    pickerInput("choice_Variant1", "Select a variant group (i.e., covariants.org): ", choices = sort(levels(as.factor(freyja.raw$Lineage))), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$Lineage))),
+    pickerInput("choice_Variant2", "Select a Pango lineage (no alias): ", choices = sort(levels(as.factor(freyja.raw$Pango))), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$Pango))),
+    pickerInput("choice_Variant3", "Select a Pango lineage (raw freyja): ", choices = sort(unique(freyja.raw$OriginalLineages)), multiple = TRUE, options = list(`actions-box` = TRUE, `live-search`=TRUE), selected = levels(as.factor(freyja.raw$OriginalLineages)))
     ),
 
   
